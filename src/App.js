@@ -1,7 +1,7 @@
 import Header from "./components/header/header";
 import Navigation from "./components/nav/navigation";
 import React, { createContext, useReducer } from "react";
-import TimeField from "./components/content/field";
+import TimeField from "./components/tasks/mainContent";
 import Footer from "./components/footer/footer";
 import { ContentWrapper } from "./components/styles";
 
@@ -49,7 +49,7 @@ function reducer(state, action) {
     case "deleteTask":
       return {
         ...state,
-        tasks: [state.tasks].filter((task) => task !== action.value),
+        tasks: [...state.tasks].filter((task) => task !== action.value),
         currentTask: false,
       };
     default:

@@ -1,7 +1,6 @@
 import React from "react";
 import { DAYS_OF_WEEK } from "../../../consts";
-import styled from "styled-components";
-import { COLORS } from "../../../consts";
+import { DayWrapper, DayOfWeek, Today } from "../../styles";
 
 const Day = ({ day }) => {
   const nowDay = day.getDate();
@@ -20,22 +19,4 @@ const Day = ({ day }) => {
   );
 };
 
-const DayOfWeek = styled.span`
-  font-size: 10px;
-`;
-
-const DayWrapper = styled.div`
-  margin: 5px;
-  display: grid;
-  text-align: center;
-`;
-
-const Today = styled.span`
-  color: white;
-  background-color: ${COLORS.RED};
-  width: 19px;
-  height: 19px;
-  border: 3px solid ${COLORS.RED};
-  border-radius: 100%;
-`;
 export default Day;

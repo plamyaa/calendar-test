@@ -1,8 +1,8 @@
 import React, { useContext, useState, useEffect } from "react";
-import styled from "styled-components";
 import { DateContext } from "../../App";
-import { HOUR_IN_DAY, COLORS, SIZE } from "../../consts";
+import { HOUR_IN_DAY, COLORS } from "../../consts";
 import { getDaysInMonth } from "./monthSlider/monthSlider";
+import { TaskBorder, TaskWrapper, TasksWrapper } from "../styles";
 
 const Tasks = () => {
   const { state, dispatch } = useContext(DateContext);
@@ -18,19 +18,6 @@ const Tasks = () => {
     </TasksWrapper>
   );
 };
-
-const TasksWrapper = styled.div`
-  display: grid;
-  grid-template-rows: repeat(24, 40px);
-  grid-template-columns: repeat(${(props) => props.daysInMonth}, 98.6px);
-  padding-top: 9px;
-  @media (max-width: ${SIZE.BREAK_POINT}) {
-    grid-template-columns: repeat(
-      ${(props) => props.daysInMonth},
-      13.3vw
-    );
-  }
-`;
 
 const Task = ({ value }) => {
   const { state, dispatch } = useContext(DateContext);
@@ -55,20 +42,5 @@ const Task = ({ value }) => {
     </div>
   );
 };
-
-const TaskBorder = styled.div`
-  height: 100%;
-  border-right: 1px solid ${COLORS.TASK_BORDER};
-  border-top: 1px solid ${COLORS.TASK_BORDER};
-  z-index: 1;
-`;
-
-const TaskWrapper = styled.div`
-  z-index: 100;
-  height: 92%;
-  border: 1px solid white;
-  background-color: ${(props) => props.color};
-  background-size: 90%;
-`;
 
 export default Tasks;
