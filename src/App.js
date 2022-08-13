@@ -1,9 +1,9 @@
-import styled from "styled-components";
 import Header from "./components/header/header";
 import Navigation from "./components/nav/navigation";
 import React, { createContext, useReducer } from "react";
 import TimeField from "./components/content/field";
 import Footer from "./components/footer/footer";
+import { ContentWrapper } from "./components/styles";
 
 export const DateContext = createContext();
 
@@ -24,13 +24,6 @@ function App() {
     </DateContext.Provider>
   );
 }
-
-const ContentWrapper = styled.div`
-  @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-  font-family: "Roboto", sans-serif;
-  max-width: 740px;
-  margin: auto;
-`;
 
 export default App;
 
