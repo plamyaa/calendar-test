@@ -3,21 +3,6 @@ import styled from "styled-components";
 import { MONTHS } from "../../consts";
 import { DateContext } from "../../App";
 import { COLORS } from "../../consts";
-
-const Navigation = () => {
-  const { state, dispatch } = useContext(DateContext);
-  const { date } = state;
-  const nowYear = date.getFullYear();
-  const nowMonth = date.getMonth();
-  return (
-    <NavigationWrapper>
-      <Arrow onClick={() => dispatch({ type: "decrement" })} />
-      {`${MONTHS[nowMonth]} ${nowYear}`}
-      <Arrow right onClick={() => dispatch({ type: "increment" })} />
-    </NavigationWrapper>
-  );
-};
-
 const NavigationWrapper = styled.div`
   border-top: 1px solid ${COLORS.MAIN_BORDER};
   background-color: ${COLORS.GREY};
@@ -39,5 +24,19 @@ const Arrow = styled.button`
   transform: rotate(${(props) => (props.right ? "45deg" : "225deg")});
   padding: 0;
 `;
+
+const Navigation = () => {
+  const { state, dispatch } = useContext(DateContext);
+  const { date } = state;
+  const nowYear = date.getFullYear();
+  const nowMonth = date.getMonth();
+  return (
+    <NavigationWrapper>
+      <Arrow onClick={() => dispatch({ type: "decrement" })} />
+      {`${MONTHS[nowMonth]} ${nowYear}`}
+      <Arrow right onClick={() => dispatch({ type: "increment" })} />
+    </NavigationWrapper>
+  );
+};
 
 export default Navigation;
