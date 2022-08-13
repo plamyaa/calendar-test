@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Time from "./timeColumn";
 import Tasks from "./tasksField";
 import MonthSlider from "./monthSlider/monthSlider";
-import { COLORS, SIZE } from "../../consts";
+import { COLORS } from "../../consts";
 
 const TimeField = () => {
   return (
